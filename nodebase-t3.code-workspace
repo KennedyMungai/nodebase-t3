@@ -5,6 +5,6 @@
     },
   ],
   "settings": {
-    "cSpell.words": ["CLIENTVAR"],
+    "cSpell.words": ["CLIENTVAR", "cmdk", "nodebase", "typesafety", "vaul"],
   },
 }
