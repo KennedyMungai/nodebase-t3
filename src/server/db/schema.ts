@@ -5,6 +5,8 @@ import {
   pgTableCreator,
   text,
   timestamp,
+  uuid,
+  varchar,
 } from "drizzle-orm/pg-core";
 
 export const createTable = pgTableCreator((name) => `pg-drizzle_${name}`);
@@ -81,3 +83,8 @@ export const accountRelations = relations(account, ({ one }) => ({
 export const sessionRelations = relations(session, ({ one }) => ({
   user: one(user, { fields: [session.userId], references: [user.id] }),
 }));
+
+export const workflowTable = pgTable("workflow", {
+  id: uuid().defaultRandom().primaryKey(),
+  name: varchar({ length: 255 }).notNull(),
+});
