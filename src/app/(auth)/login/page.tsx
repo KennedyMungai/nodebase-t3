@@ -5,7 +5,7 @@ const LoginPage = async () => {
   await requireUnauth();
 
   return (
-    <div className="">
+    <div className="bg-muted">
       <LoginForm />
     </div>
   );

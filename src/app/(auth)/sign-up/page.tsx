@@ -5,7 +5,7 @@ const SignUpPage = async () => {
   await requireUnauth();
 
   return (
-    <div className="">
+    <div className="bg-muted">
       <RegisterForm />
     </div>
   );
