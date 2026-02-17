@@ -1,31 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
+import { AuthLayout } from "~/features/auth/components/auth-layout";
 
 type Props = {
   children: ReactNode;
 };
 
-const AuthLayout = ({ children }: Props) => {
-  return (
-    <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col gap-6">
-        <Link
-          href={"/"}
-          className="font-md flex items-center gap-2 self-center"
-        >
-          <Image
-            src={"/logos/logo.svg"}
-            alt="Nodebase"
-            width={30}
-            height={30}
-          />
-          Nodebase
-        </Link>
-        {children}
-      </div>
-    </div>
-  );
+const Layout = ({ children }: Props) => {
+  return <AuthLayout>{children}</AuthLayout>;
 };
 
-export default AuthLayout;
+export default Layout;
