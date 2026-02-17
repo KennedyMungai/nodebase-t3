@@ -1,21 +1,16 @@
-import { db } from "~/server/db";
-import { workflowTable } from "~/server/db/schema";
+import { generateText } from "ai";
 import { inngest } from "./client";
 
-export const helloWorld = inngest.createFunction(
-  { id: "hello-world", retries: 5 },
-  { event: "test/hello.world" },
+export const execute = inngest.createFunction(
+  { id: "execute" },
+  { event: "execute/ai" },
   async ({ event, step }) => {
-    await step.sleep("fetching", "5s");
-
-    await step.sleep("transcribing", "5s");
-
-    await step.sleep("sending-to-ai", "5s");
-
-    await step.run("create-workflow", async () => {
-      return await db.insert(workflowTable).values({
-        name: "test-workflow from inngest",
-      });
+    const { steps } = await step.ai.wrap("gemini-generate-text", generateText, {
+      system: "You are a helpful assistant.",
+      prompt: "What is 2 + 2?",
+      model: "google/gemini-2.5-flash",
     });
+
+    return steps;
   },
 );
