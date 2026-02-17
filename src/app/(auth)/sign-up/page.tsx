@@ -4,11 +4,7 @@ import { requireUnauth } from "~/lib/auth-utils";
 const SignUpPage = async () => {
   await requireUnauth();
 
-  return (
-    <div className="">
-      <RegisterForm />
-    </div>
-  );
+  return <RegisterForm />;
 };
 
 export default SignUpPage;
