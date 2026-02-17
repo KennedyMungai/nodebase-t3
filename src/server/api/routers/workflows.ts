@@ -9,7 +9,7 @@ export const postRouter = createTRPCRouter({
     return await db.select().from(workflowTable).limit(10);
   }),
   createWorkflow: protectedProcedure.mutation(async () => {
-    return db.insert(workflowTable).values({
+    return await db.insert(workflowTable).values({
       name: "test-workflow",
     });
   }),
