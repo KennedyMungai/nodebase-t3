@@ -1,13 +1,13 @@
 type Props = {
   params: Promise<{
-    credentialId: string;
+    executionId: string;
   }>;
 };
 
-const Credential = async ({ params }: Props) => {
-  const { credentialId } = await params;
+const ExecutionPage = async ({ params }: Props) => {
+  const { executionId } = await params;
 
-  return <div>{credentialId}</div>;
+  return <div>{executionId}</div>;
 };
 
-export default Credential;
+export default ExecutionPage;
