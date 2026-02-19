@@ -111,7 +111,7 @@ export const AppSidebar = () => {
               onClick={() => {}}
             >
               <LogOutIcon className="size-4" />
-              <span>Log Out</span>
+              <span>Sign Out</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
