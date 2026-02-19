@@ -5,6 +5,7 @@ import {
   FolderOpenIcon,
   HistoryIcon,
   KeyIcon,
+  LogOutIcon,
   StarIcon,
 } from "lucide-react";
 import Image from "next/image";
@@ -101,6 +102,16 @@ export const AppSidebar = () => {
             >
               <CreditCardIcon className="size-4" />
               <span>Billing Portal</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton
+              tooltip={"Logout"}
+              className="h-10 gap-x-4 px-4"
+              onClick={() => {}}
+            >
+              <LogOutIcon className="size-4" />
+              <span>Log Out</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
