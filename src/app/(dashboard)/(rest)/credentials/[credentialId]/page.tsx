@@ -1,10 +1,12 @@
 type Props = {
-  params: {
+  params: Promise<{
     credentialId: string;
-  };
+  }>;
 };
 
-const Credential = ({ params: { credentialId } }: Props) => {
+const Credential = async ({ params }: Props) => {
+  const { credentialId } = await params;
+
   return <div>{credentialId}</div>;
 };
 
