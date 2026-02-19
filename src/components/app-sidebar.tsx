@@ -1,5 +1,6 @@
 "use client";
 
+import { router } from "better-auth/api";
 import {
   CreditCardIcon,
   FolderOpenIcon,
@@ -22,9 +23,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "~/components/ui/sidebar";
+import { authClient } from "~/server/better-auth/client";
 
 export const AppSidebar = () => {
-  const route = useRouter();
+  const router = useRouter();
   const pathname = usePathname();
 
   const menuItems = [
@@ -108,7 +110,15 @@ export const AppSidebar = () => {
             <SidebarMenuButton
               tooltip={"Logout"}
               className="h-10 gap-x-4 px-4"
-              onClick={() => {}}
+              onClick={() =>
+                authClient.signOut({
+                  fetchOptions: {
+                    onSuccess: () => {
+                      router.push("/login");
+                    },
+                  },
+                })
+              }
             >
               <LogOutIcon className="size-4" />
               <span>Sign Out</span>
