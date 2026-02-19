@@ -1,6 +1,5 @@
 "use client";
 
-import { router } from "better-auth/api";
 import {
   CreditCardIcon,
   FolderOpenIcon,
