@@ -23,6 +23,7 @@ import {
   SidebarMenuItem,
 } from "~/components/ui/sidebar";
 import { authClient } from "~/server/better-auth/client";
+import { Separator } from "~/components/ui/separator";
 
 export const AppSidebar = () => {
   const router = useRouter();
@@ -56,6 +57,7 @@ export const AppSidebar = () => {
           </SidebarMenuButton>
         </SidebarMenuItem>
       </SidebarHeader>
+      <Separator />
       <SidebarContent>
         {menuItems.map((group) => (
           <SidebarGroup key={group.title}>
@@ -85,6 +87,7 @@ export const AppSidebar = () => {
           </SidebarGroup>
         ))}
       </SidebarContent>
+      <Separator />
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
