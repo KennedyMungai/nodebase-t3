@@ -1,6 +1,6 @@
 "use client";
 
-import { FolderOpenIcon } from "lucide-react";
+import { FolderOpenIcon, HistoryIcon, KeyIcon } from "lucide-react";
 import Link from "next/link";
 import {
   Sidebar,
@@ -14,8 +14,12 @@ import {
 export const AppSidebar = () => {
   const menuItems = [
     {
-      title: "Workflows",
-      items: [{ title: "Workflows", icon: FolderOpenIcon, url: "/workflows" }],
+      title: "Main",
+      items: [
+        { title: "Workflows", icon: FolderOpenIcon, url: "/workflows" },
+        { title: "Credentials", icon: KeyIcon, url: "/credentials" },
+        { title: "Executions", icon: HistoryIcon, url: "/executions" },
+      ],
     },
   ];
 
