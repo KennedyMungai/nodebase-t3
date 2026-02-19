@@ -1,5 +1,5 @@
 const CredentialsPage = () => {
-  return <div>WorkflowsPage</div>;
+  return <div>CredentialsPage</div>;
 };
 
 export default CredentialsPage;
