@@ -1,5 +1,3 @@
-type Props = {};
-
 const WorkflowsPage = () => {
   return <div>WorkflowsPage</div>;
 };
