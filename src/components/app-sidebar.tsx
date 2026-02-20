@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { Separator } from "~/components/ui/separator";
 import {
   Sidebar,
   SidebarContent,
@@ -22,12 +23,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "~/components/ui/sidebar";
+import { useHasActiveSubscription } from "~/features/subscriptions/hooks/use-subscription";
 import { authClient } from "~/server/better-auth/client";
-import { Separator } from "~/components/ui/separator";
 
 export const AppSidebar = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const { hasActiveSubscription, isLoading } = useHasActiveSubscription();
 
   const menuItems = [
     {
@@ -90,16 +92,18 @@ export const AppSidebar = () => {
       <Separator />
       <SidebarFooter>
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              tooltip={"Upgrade to Pro"}
-              className="h-10 gap-x-4 px-4"
-              onClick={() => authClient.checkout({ slug: "pro" })}
-            >
-              <StarIcon className="size-4 border-yellow-500 fill-yellow-500" />
-              <span>Upgrade to Pro</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
+          {!hasActiveSubscription && !isLoading && (
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                tooltip={"Upgrade to Pro"}
+                className="h-10 gap-x-4 px-4"
+                onClick={() => authClient.checkout({ slug: "pro" })}
+              >
+                <StarIcon className="size-4 border-yellow-500 fill-yellow-500" />
+                <span>Upgrade to Pro</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          )}
           <SidebarMenuItem>
             <SidebarMenuButton
               tooltip={"Billing Portal"}
