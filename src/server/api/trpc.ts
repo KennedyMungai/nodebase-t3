@@ -137,7 +137,7 @@ export const protectedProcedure = t.procedure
 export const premiumProcedure = protectedProcedure.use(
   async ({ ctx, next }) => {
     const customer = await polarClient.customers.getStateExternal({
-      externalId: ctx.auth.user.id,
+      externalId: ctx.session.user.id,
     });
 
     if (
