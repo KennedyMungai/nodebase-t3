@@ -1,5 +1,6 @@
-import { postRouter } from "~/server/api/routers/workflows";
+import { workflowRouter } from "~/server/api/routers/workflows";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
+import { generativeTextRouter } from "./routers/generativeText";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +8,8 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  post: postRouter,
+  workflows: workflowRouter,
+  generativeText: generativeTextRouter,
 });
 
 // export type definition of API

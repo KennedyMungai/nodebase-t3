@@ -3,7 +3,7 @@ import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
 import { db } from "~/server/db";
 import { workflowTable } from "~/server/db/schema";
 
-export const postRouter = createTRPCRouter({
+export const workflowRouter = createTRPCRouter({
   getWorkflows: protectedProcedure.query(async ({ ctx }) => {
     console.log(ctx.session.user);
 
