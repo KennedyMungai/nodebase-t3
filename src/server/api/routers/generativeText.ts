@@ -1,8 +1,8 @@
 import { inngest } from "~/inngest/client";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, premiumProcedure } from "../trpc";
 
-export const generativeText = createTRPCRouter({
-  testAI: protectedProcedure.mutation(async () => {
+export const generativeTextRouter = createTRPCRouter({
+  textAI: premiumProcedure.mutation(async () => {
     await inngest.send({
       name: "execute/ai",
     });
